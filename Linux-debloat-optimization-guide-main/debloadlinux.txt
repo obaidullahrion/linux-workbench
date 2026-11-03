@@ -1,0 +1,59 @@
+ sudo apt install ubuntu-restricted-extras
+
+
+
+
+
+sudo fstrim -v /
+systemctl status fstrim.timer
+systemctl status fstrim.timer
+
+
+
+in grub
+
+nano /etc/default/grub 
+
+GRUB_CMDLINE_LINUX_DEFAULT="profile zswap.enabled=1 zswap.compressor=lz4 zswap.max_pool_percent=20" 
+
+
+ systemd-analyze blame    - analyze startup time
+
+
+
+cat /proc/sys/vm/swappiness
+
+
+sudo sysctl vm.swappiness=15
+
+
+echo "vm.swappiness=15" | sudo tee -a /etc/sysctl.conf
+
+
+
+
+sudo apt install cpufrequtils
+then run the cpuboost.sh from mintscript folder 
+
+
+
+sudo nano /etc/systemd/journald.conf
+SystemMaxUse=50M
+RuntimeMaxUse=50M
+
+
+
+
+
+
+
+
+check enabled services 
+systemctl list-unit-files --type=service --no-pager --no-legend | awk '$2=="enabled" {print $1}'
+
+
+
+
+
+
+
